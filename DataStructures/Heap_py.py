@@ -7,8 +7,16 @@ class Heap:
         self.maxHeapify(self.items, self.root, len(self.items))
 
     def heapSort(self):
-        return 0
-
+        temp = 0
+        for i in range(len(self.items)//2, 1, -1):
+            self.maxHeapify(self.items, i, len(self.items))
+        
+        for i in range(len(self.items), 2, -1):
+            temp = self.items[0]
+            self.items[0] = self.items[i]
+            self.items[i] = temp
+            self.maxHeapify(self.items, 1, i)
+            
     def maxHeapify(self, L, i, n):
         left_child = 2*i
         right_child = 2*i+1
