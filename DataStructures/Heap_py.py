@@ -1,5 +1,5 @@
 class Heap:
-    items = []
+    items = [-1] #placeholder for the 0th index as we will be working with >= 1 index
     root = 1
 
     def add(self, x):
@@ -27,11 +27,6 @@ class Heap:
         #[4,1,3,2,16,9,10,14,8,7] -> [16,14,10,8,7,9,3,2,4,1]
         left_child = 2*(i)
         right_child = 2*(i)+1
-        index_largest = i
-        print("Initial: " + str(index_largest))
-        if (left_child < n and right_child < n):
-            print("left_child_index: " + str(left_child))
-            print("right_child_index: " + str(right_child))
         if left_child < n and L[left_child] > L[i]:
             index_largest = left_child
         else:
@@ -39,12 +34,11 @@ class Heap:
 
         if right_child < n and L[right_child] > L[index_largest]:
             index_largest = right_child
-        print("largest index: " + str(index_largest))
         if(index_largest != i):
             temp = L[i]
             L[i] = L[index_largest]
             L[index_largest] = temp
-            maxHeapify(L, index_largest, n)
+            self.maxHeapify(L, index_largest, n)
     
 
 
