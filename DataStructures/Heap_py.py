@@ -7,14 +7,14 @@ class Heap:
         self.maxHeapify(self.items, self.root, len(self.items))
     
     def getMax(self):
-        pass
+        return self.items[1]
     #min for min heap
     def extractMax(self):
         pass
     def heapSort(self):
         A = [4,1,3,2,16,9,10,14,8,7]
         temp = 0
-        for i in range(len(self.items)//2, 1, -1):
+        for i in range(len(self.items)//2, 0, -1):
             self.maxHeapify(self.items, i, len(self.items))
         
         for i in range(len(self.items), 2, -1):
