@@ -1,5 +1,5 @@
 def scheduleInterval(a):
-    #schedules mximum number of intervals that can fit between s and f
+    #schedules maximum number of intervals that can fit between s and f
     a.sort(key=lambda x:x[1])
     optimized_schedule = []
     max_f = 0
