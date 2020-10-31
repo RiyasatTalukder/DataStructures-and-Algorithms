@@ -12,14 +12,13 @@ class Heap:
     def extractMax(self):
         pass
     def heapSort(self):
-        A = [4,1,3,2,16,9,10,14,8,7]
         temp = 0
         for i in range(len(self.items)//2, 0, -1):
             self.maxHeapify(self.items, i, len(self.items))
         
-        for i in range(len(self.items), 2, -1):
-            temp = self.items[0]
-            self.items[0] = self.items[i]
+        for i in range(len(self.items)-1, 1, -1):
+            temp = self.items[1]
+            self.items[1] = self.items[i]
             self.items[i] = temp
             self.maxHeapify(self.items, 1, i)
 
