@@ -1,29 +1,61 @@
 class Heap:
+    '''
+    The following is a Max-Heap implementation with the standard methods.
+    The code assumes that the user follows a 1-based indexing instead of the standard
+    -1 is used as an error code as well as a placeholder value
+    '''
+
     items = [-1] #placeholder for the 0th index as we will be working with >= 1 index
     root = 1
 
+    #O(lgn)
     def add(self, x):
-        self.items.append(x)
-        self.maxHeapify(self.items, self.root, len(self.items))
-    
+        self.items.append(-1)
+        self.increaseKey(len(self.items)-1, x)
+    #O(1)
     def getMax(self):
         return self.items[1]
-    #min for min heap
+    
+    #O(lgn)
     def extractMax(self):
-        pass
+        if len(self.items) < 1:
+            return -1
+        maximum = self.items[1]
+        self.items[1] = self.items[len(self.items)-1]
+        self.items.pop() 
+        self.maxHeapify(self.items,1,len(self.items))
+        return maximum
+    
+    #O(lgn)
+    def increaseKey(self, i, value):
+        if(value < self.items[i]):
+            return -1
+        self.items[i] = value
+        parent = i//2
+        while (i > 1 and self.items[parent] < self.items[i]):
+            temp = self.items[i]
+            self.items[i] = self.items[parent]
+            self.items[parent] = temp
+            i = parent
+            parent = i//2
+    
+    #O(nlgn)
     def heapSort(self):
         temp = 0
+        #For our case, self.items is always a heap so we do not require to rehepify
+        #However, for a general array, we would first need to hepify using the following code
+        """
         for i in range(len(self.items)//2, 0, -1):
             self.maxHeapify(self.items, i, len(self.items))
-        
+        """
         for i in range(len(self.items)-1, 1, -1):
-            temp = self.items[1]
-            self.items[1] = self.items[i]
+            temp = self.items[self.root]
+            self.items[self.root] = self.items[i]
             self.items[i] = temp
-            self.maxHeapify(self.items, 1, i)
-
+            self.maxHeapify(self.items, self.root, i)
+    
+    #O(lgn)
     def maxHeapify(self, L, i, n):
-        #[4,1,3,2,16,9,10,14,8,7] -> [16,14,10,8,7,9,3,2,4,1]
         left_child = 2*(i)
         right_child = 2*(i)+1
         if left_child < n and L[left_child] > L[i]:
@@ -39,10 +71,7 @@ class Heap:
             L[index_largest] = temp
             self.maxHeapify(L, index_largest, n)
     
-
-
-
-
-       
-       
+    def getHeap(self):
+        return self.items[1:]
+               
 
