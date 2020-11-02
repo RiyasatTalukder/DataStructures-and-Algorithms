@@ -1,5 +1,12 @@
 def scheduleInterval(a):
-    #schedules maximum number of intervals that can fit between s and f
+    """
+    Given a set of intervals, the algorithm find the maximum
+    number of schdules that can be fit between the minimum 
+    start time and the maximum finish time in the set
+
+    Time: O(nlogn)
+    Space: O(n)
+    """
     a.sort(key=lambda x:x[1])
     optimized_schedule = []
     max_f = 0
