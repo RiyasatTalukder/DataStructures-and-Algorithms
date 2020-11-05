@@ -1,6 +1,6 @@
-public class DynamicArray {
+public class DynamicArray_java {
     public static void main(String args[]) {
-        DynamicArray arr = new DynamicArray();
+        DynamicArray_java arr = new DynamicArray_java();
         for(int x = 0; x < 10; x++) {
             arr.add(x);
         }
