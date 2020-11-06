@@ -1,4 +1,11 @@
 public class ReverseSentence {
+    /*
+    Given a sentence, the algorithm reverses the sentence. 
+    It first reverses all the words and then reverses the whole string.
+
+    Time: O(n)
+    Space: O(n)
+    */
     public static void main(String args[]) {
         String test = "   i like programming   ";
         ReverseSentence k = new ReverseSentence();

@@ -1,4 +1,11 @@
 public class ClosingParenthesis {
+    /*
+    Given a string with parenthesis, the algorothm finds the closing parenthesis
+    of an opening parenthesis at index i. 
+
+    Time: O(n)
+    Space: O(1)
+    */
     public static void main(String args[]) {
         String test = "This author (unnamed (anonymous) because he is bashful (shy (kinda))) loves brackets.";
         ClosingParenthesis k = new ClosingParenthesis();
