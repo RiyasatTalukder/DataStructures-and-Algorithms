@@ -38,6 +38,21 @@ void inOrder(BST_node *root) {
         inOrder(root->right);
     }
 }
+void postOrder(BST_node *root) {
+    if(root != NULL) {
+        postOrder(root->left);
+        postOrder(root->right);
+        printf("%d", root->key);
+    }
+void preOrder(BST_node *root) {
+    if(root != NULL) {
+        printf("%d", root->key);
+        preOrder(root->left);
+        preOrder(root->right);
+    }
+}
+
+}
 int search(BST_node *root, int target) {
 
     if(root == NULL) {
