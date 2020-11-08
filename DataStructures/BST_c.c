@@ -3,8 +3,9 @@
 
 /*
 The following is an implementation of the BST Data Structure in C.
-Amortized Time complexity of the standard operations insert, search, delete: O(log(N))
-Time complexity for the traversals: O(N)
+
+Amortized Time complexity of the standard operations insert, search, delete: O(lg(n))
+Time complexity for the traversals: O(n)
 */
 
 typedef struct BST_Node_Structure 

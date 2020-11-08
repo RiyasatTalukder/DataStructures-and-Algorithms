@@ -1,4 +1,9 @@
 public class DynamicArray_java {
+    /*
+    The following is an implementation of the Dynamic array data structure.
+
+    Amortized Time of the standard operations (add, remove): O(1)
+    */
     public static void main(String args[]) {
         DynamicArray_java arr = new DynamicArray_java();
         for(int x = 0; x < 10; x++) {
