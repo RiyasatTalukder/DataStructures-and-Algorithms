@@ -1,6 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+/*
+The following is an implementation of the BST Data Structure in C.
+Amortized Time complexity of the standard operations insert, search, delete: O(log(N))
+Time complexity for the traversals: O(N)
+*/
+
 typedef struct BST_Node_Structure 
 {
     int key;
@@ -31,6 +37,55 @@ BST_node *insert(BST_node *root, BST_node *node) {
     }
     return root;
 }
+BST_node *findSuccessor(BST_node *root_right) {
+
+    while(root_right->left != NULL){
+        root_right = root_right->left;
+    }
+    return root_right;
+
+}
+BST_node *delete(BST_node *root, int key) {
+
+    if(root == NULL) {
+        return NULL;
+    }
+    if(root->key == key) {
+        if(root->right == NULL && root->left == NULL) {
+            free(root);
+            return NULL;
+        }
+        if(root->right == NULL) {
+            BST_node *temp = root->left;
+            free(root);
+            return temp;
+        } else if (root->left == NULL) {
+            BST_node *temp = root->right;
+            free(root);
+            return temp;
+        } else {
+            BST_node *successor = findSuccessor(root->right);
+            root->key = successor->key;
+            root->right = delete(root->right, successor->key);
+            return root;
+        }
+    }
+    if(key < root->key) {
+        root->left = delete(root->left, key);
+
+    } else { 
+        root->right = delete(root->right, key);
+    }
+    return root;
+
+}
+void deleteBST(BST_node* root) {
+    if(root != NULL){
+        deleteBST(root->left);
+        deleteBST(root->right);
+        free(root);
+    }
+}
 void inOrder(BST_node *root) {
     if(root != NULL) {
         inOrder(root->left);
@@ -44,14 +99,13 @@ void postOrder(BST_node *root) {
         postOrder(root->right);
         printf("%d", root->key);
     }
+}
 void preOrder(BST_node *root) {
     if(root != NULL) {
         printf("%d", root->key);
         preOrder(root->left);
         preOrder(root->right);
     }
-}
-
 }
 int search(BST_node *root, int target) {
 
@@ -64,8 +118,11 @@ int search(BST_node *root, int target) {
     if(root->key < target){
         return search(root->right, target);
     } else {
-        return search(root->left, target)
+        return search(root->left, target);
     }
-
     return -1;
+}
+//generate BST here
+int main() {
+    return 0;
 }
