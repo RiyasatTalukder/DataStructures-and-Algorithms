@@ -3,6 +3,8 @@ class Heap:
     The following is a Max-Heap implementation with the standard methods.
     The code assumes that the user follows a 1-based indexing instead of the standard
     -1 is used as an error code as well as a placeholder value
+
+    Time for standard operations: O(lgn)
     '''
 
     items = [-1] #placeholder for the 0th index as we will be working with >= 1 index
