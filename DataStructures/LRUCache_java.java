@@ -51,7 +51,7 @@ public class LRUCache_java {
 
     private DLNode removeTail() {
         DLNode last = tail.prev;
-        this.removeNode(tail);
+        this.removeNode(last);
         return last;
     }
 
