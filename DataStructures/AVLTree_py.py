@@ -37,6 +37,30 @@ class AVLTree:
         #update balance factors
         
         return pivot
+    
+    def rightRotate(self, root):
+        #right rotation is symmetric to left rotation
+        pivot = root.left
+        root.left = pivot.right
+        #re-assign the parents accordingly
+        if(pivot.right != None):
+            pivot.right.parent = root
+        pivot.parent = root.parent
+        if(root.parent == None):
+            self.root = pivot
+        elif(root.parent.right == root):
+            root.parent.right = pivot
+        else:
+            root.parent.left = pivot
+
+        pivot.right = root
+        root.parent = pivot
+        #update balance factors
+        
+        return pivot
+
+        
+
 
 
 
