@@ -15,6 +15,32 @@ class AVLTree:
         else:
             return self.search(root.right, key)
     
+    def insert(self, root, node):
+        #To do
+        pass
+
+    def delete(self, root, node):
+        #To do
+        pass
+
+    def printPreOrder(self, root):
+        if(root != None):
+            print(root.key)
+            self.printInOrder(root.left)
+            self.printInOrder(root.right)
+
+    def printInOrder(self, root):
+        if(root != None):
+            self.printInOrder(root.left)
+            print(root.key)
+            self.printInOrder(root.right)
+
+    def printPostOrder(self, root):
+        if(root != None):
+            self.printInOrder(root.left)
+            self.printInOrder(root.right)
+            print(root.key)
+    
     def leftRotate(self, root):
         #left subtree of pivot becomes right subtree of root, pivot becomes new root
 
