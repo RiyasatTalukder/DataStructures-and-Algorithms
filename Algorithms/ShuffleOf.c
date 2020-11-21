@@ -7,6 +7,7 @@ int isShuffleOf(char x[], char y[], char z[]) {
     if the the given strings can be intervaled to form the target string.
     This algorithm uses a dynamic porgram approach.
 
+    Let n be the size of x and m be the size of y
     Time: O(m*n)
     Space: O(m*n)
     */
