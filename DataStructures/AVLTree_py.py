@@ -16,8 +16,39 @@ class AVLTree:
             return self.search(root.right, key)
     
     def insert(self, root, node):
+        """
+        There are 4 cases for rotaion:
+        - Parent refers to the grandparent of the inserted node
+        - Child refers to the parent of the inserted node
+
+        1) left-left
+            In this case, the left side of the parent and its child is heavy
+            We can perform a RIGHT rotation on the parent node to balance the tree
+
+        2) left-right
+            Left side of the parent is heavy and the right side of the child is heavy
+            We can perform a LEFT rotation on the child and then RIGHT rotation on parent 
+
+        3) right-right
+            The right side of the parent and its child is heavy 
+            We can perform a LEFT rotation on the parent node to balance the tree
+
+        4) right-left
+            The right of the parent is heavy and the left side of the child is heavy
+            We can perform a RIGHT rotation on the child and then LEFT rotation on parenr
+
+        """
         #To do
-        pass
+        if(root == None):
+            return node
+        if(root.value < node.value):
+            root = self.insert(root.right, node)
+        else:
+            root = self.insert(root.left, node)
+        
+        node.bf = 0
+        
+        return root
 
     def delete(self, root, node):
         #To do
