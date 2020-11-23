@@ -3,8 +3,9 @@ def possibleWords(digits, words):
     Given a phone with some working digits, determine if it possible to 
     construct the words with the working digits.
 
+    Assume each word is length <= 45 (longest english word)
     Time: O(n+m)
-    SpaceK O(n+m)
+    Space: O(n+m)
     """
 
     result = [False]*len(words)
