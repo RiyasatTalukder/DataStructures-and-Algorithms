@@ -75,6 +75,8 @@ class AVLTree:
                 temp = findSuccessor(root.right)
                 root.key = temp.key
                 root.right = delete(temp)
+                return root
+                
         if(root.key < node.key):
             root.right = delete(root.right, node)
         else:
