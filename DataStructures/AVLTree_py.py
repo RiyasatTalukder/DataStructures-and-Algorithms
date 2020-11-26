@@ -35,7 +35,7 @@ class AVLTree:
 
         4) right-left
             The right of the parent is heavy and the left side of the child is heavy
-            We can perform a RIGHT rotation on the child and then LEFT rotation on parenr
+            We can perform a RIGHT rotation on the child and then LEFT rotation on parent
 
         """
         #To do
@@ -51,8 +51,41 @@ class AVLTree:
         return root
 
     def delete(self, root, node):
+        """
+        The cases for updating the balance factor is the same cases 
+        as mentioned in the insert method
+        """
         #To do
-        pass
+        if(root.key == None):
+            return None
+        if(root.key == node.key):
+            if(root.left == None and root.right == None):
+                root = None
+            elif(root.left == None):
+                temp = root.right
+                temp.parent = root.parent
+                root = None
+                return temp
+            elif(root.right == None):
+                temp = root.left
+                temp.parent = root.parent
+                root = None
+                return temp
+            else:
+                temp = findSuccessor(root.right)
+                root.key = temp.key
+                root.right = delete(temp)
+        if(root.key < node.key):
+            root.right = delete(root.right, node)
+        else:
+            root.left = delete(root.left, node)
+        
+        return root
+    
+    def findSuccessor(self, root):
+        while(root.left != None):
+            root = root.left
+        return root
 
     def printPreOrder(self, root):
         if(root != None):
