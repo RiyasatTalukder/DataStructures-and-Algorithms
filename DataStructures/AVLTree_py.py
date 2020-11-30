@@ -52,38 +52,33 @@ class AVLTree:
             root = self.insert(root.right, node)
         else:
             root = self.insert(root.left, node)
-        
-        node.bf = 0
+        self.updateBalance(root)
+        return root
+    
+    def updateBalance(self, node):
+        if(node.bf > 1 or node.bf < -1):
+            #case 1
+            if(node.bf == -2 and node.left.bf == -1):
+                self.rightRotate(node)
+            #case 2
+            if(node.bf == -2 and node.left.bf == 1):
+                self.leftRotate(node.left)
+                self.rightRotate(node)
+            #case 3
+            if(node.bf == 2 and node.right.bf == 1):
+                self.leftRotate(node)
+            #case 4
+            if(node.bf == 2 and node.right.bf == -1):
+                self.rightRotate(node.right)
+                self.leftRotate(node)
+            return
         i = node.parent
         if(node == i.right):
             i.bf+=1
         else:
             i.bf-=1
-        
-        if(i.bf == 0):
-            return root
-        
-        #case 1
-        if(i.bf == -2 and i.left.bf == -1):
-            self.rightRotate(i)
-        #case 2
-        if(i.bf == -2 and i.left.bf == 1):
-            self.leftRotate(i.left)
-            self.rightRotate(i)
-        #case 3
-        if(i.bf == 2 and i.right.bf == 1):
-            self.leftRotate(i)
-        #case 4
-        if(i.bf == 2 and i.right.bf == -1):
-            self.rightRotate(i.right)
-            self.leftRotate(i)
-        
-        if(i == root):
-            return root
-        
-        i = i.parent
-
-        return root
+        if(i.bf != 0):
+            updateBalance(i)
 
     def delete(self, root, node):
         """
