@@ -35,8 +35,7 @@ def subarrayToSort(nums):
     #finding the right array of the sub array
     while(nums[maxIndex] >= maxx):
         maxIndex-=1
-
     return [minIndex, maxIndex]
 
-
-print(subarrayToSort([1,2,3,4,5,2,6,1,1,0,10,11]))
+A = [1,2,3,4,5,2,6,1,1,0,10,11]
+print(subarrayToSort(A))
