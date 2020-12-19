@@ -1,4 +1,4 @@
-def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+def searchMatrix(self, matrix: List[List[int]], target: int):
     """
     Given a sorted matrix, the algorithm finds the target 
     value within the matrix and returns True if the value exists.
@@ -19,7 +19,7 @@ def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
             
     return False
 
-def searchMatrixDandC(matrix: List[List[int]], target: int) -> bool:
+def searchMatrixDandC(matrix: List[List[int]], target: int):
     """
     This a Divide and Conquer algorithm that finds the element
     in the sorted matrix. It eliminates the 1st or 4th quadrant 
