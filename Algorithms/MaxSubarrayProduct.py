@@ -1,4 +1,4 @@
-def maxProductSubarray(self, nums: List[int]) -> int: 
+def maxProductSubarray(nums: List[int]): 
     """
     Given an array of numbers, the algorithm finds the maximum
     product that can be achieved from a subarray. It takes a 
