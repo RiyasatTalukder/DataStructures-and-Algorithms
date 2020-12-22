@@ -1,4 +1,4 @@
-def searchMatrix(self, matrix: List[List[int]], target: int):
+def searchMatrix(matrix: List[List[int]], target: int):
     """
     Given a sorted matrix, the algorithm finds the target 
     value within the matrix and returns True if the value exists.
