@@ -42,3 +42,6 @@ def search(nums, target):
     index2 = binarySearch(nums, pivot, len(nums), target) if index == -1 else -1
     
     return index if index != -1 else index2
+
+A = [5,6,7,8,1,2,3,4]
+assert 4 == search(A, 1)
