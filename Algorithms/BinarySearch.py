@@ -25,3 +25,6 @@ def search(nums, target):
             high = mid
     #if element not present, return -1
     return -1
+
+A = [1,2,3,4,5]
+assert 3 == search(A, 4)
