@@ -26,3 +26,6 @@ def partitionLabels(S):
             index = -1
             prev = i+1
     return partitions
+
+S = "ababcbacadefegdehijhklij"
+assert [9,7,8] == partitionLabels(S)
