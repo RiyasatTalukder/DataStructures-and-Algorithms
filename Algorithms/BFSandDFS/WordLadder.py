@@ -43,3 +43,8 @@ def ladderLength(beginWord, endWord, wordList):
         edit+=1
     #if beginWord == endWord, it is possible
     return edit if beginWord == endWord else 0
+
+begin = "hot"
+end = "dog"
+wordList = ["hot","cog","dog","tot","hog","hop","pot","dot"]
+assert 3 == ladderLength(begin, end, wordList)
