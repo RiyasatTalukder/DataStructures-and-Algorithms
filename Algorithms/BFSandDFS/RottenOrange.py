@@ -1,7 +1,7 @@
 def rottenOranges(grid):
     """
     Given a grid of oranges, a rotten orange is marked as 2,
-    a fresh orange is marked as 1, and empty cells marked as 2.
+    a fresh orange is marked as 1, and empty cells marked as 0.
     Every minute, a rotten orange will infect its adjacent neighbours.
     The algorithm will find the number of minutes till all fresh oranges
     become rotten (infected).
