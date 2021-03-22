@@ -26,3 +26,6 @@ def countSubstrings(s):
         palindromes+=countPalindromes(s,i,i+1)
     
     return palindromes
+
+assert countSubstrings("bbbb") == 7
+assert countSubstrings("bbracecar") == 13
