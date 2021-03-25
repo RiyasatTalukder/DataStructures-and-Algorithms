@@ -21,7 +21,6 @@ def suggest(searchWord, possibleWords):
             #matching prefix will determine possible suggestion word
             if(word == possibleWords[j][:i+1]):
                 suggested.append(possibleWords[j])
-            j+=1
         result.append(suggested)
         suggested = []
     return result
@@ -40,4 +39,4 @@ def binarySearch(A, target):
     return low
 
 A = ["mobile","mouse","moneypot","monitor","mousepad"]
-print(suggest("mouse", A))
+assert suggest("mouse", A) == [["mobile","moneypot","monitor"],["mobile","moneypot","monitor"],["mouse","mousepad"],["mouse","mousepad"],["mouse","mousepad"]]
