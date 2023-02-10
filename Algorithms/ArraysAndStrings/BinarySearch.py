@@ -20,7 +20,7 @@ def search(nums, target):
         #look into the right subarray from the midpoint
         if(nums[mid] < target):
             low = mid + 1
-        #look into the left subarray from the midpoint
+        #look into the left subarray from the midpoint 
         else:
             high = mid
     #if element not present, return -1
